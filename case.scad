@@ -1,6 +1,6 @@
 $fn = 100;
 
-module leiste() {
+module beam() {
     translate([0, 0, -9])
     polyhedron(
         points = [
@@ -75,65 +75,70 @@ module bottom() {
     difference() {
         union() {
             difference() {
-                cube([190, 130, 76]);
+                cube([190, 132, 76]);
                 translate([2, 2, 2])
-                    cube([186, 126, 76]);
+                    cube([186, 128, 76]);
             }
             translate([150, 2, 38])
                 rotate([90, -90, 0])
                     cof_add(1.3);
-            translate([150, 128, 38])
+            translate([150, 130, 38])
                 rotate([-90, -90, 0])
                     cof_add(1.3);
-            translate([188, 65, 38])
+            translate([188, 66, 38])
                 rotate([90, -90, 90])
                     cof_add(1.3);
-            multmatrix([[0, -1, 0, 190], [130, 0, 0, 0], [0, 0, 1, 76], [0, 0, 0, 1]])
-                leiste();
-            multmatrix([[0, 1, 0, 0], [-130, 0, 0, 130], [0, 0, 1, 76], [0, 0, 0, 1]])
-                leiste();
+            multmatrix([[0, -1, 0, 190], [132, 0, 0, 0], [0, 0, 1, 76], [0, 0, 0, 1]])
+                beam();
+            multmatrix([[0, 1, 0, 0], [-132, 0, 0, 132], [0, 0, 1, 76], [0, 0, 0, 1]])
+                beam();
         }
         union() {
+
+            // Circle of friends
             translate([150, 2, 38])
                 rotate([90, -90, 0])
                     cof_sub(1.3);
-            translate([150, 128, 38])
+            translate([150, 130, 38])
                 rotate([-90, -90, 0])
                     cof_sub(1.3);
-            translate([188, 65, 38])
+            translate([188, 66, 38])
                 rotate([90, -90, 90])
                     cof_sub(1.3);
+
+            // Screw holes
             translate([6, 15, 80])
                 cylinder(h = 30, r = 1.25, center = true);
-            translate([6, 65, 80])
+            translate([6, 66, 80])
                 cylinder(h = 30, r = 1.25, center = true);
-            translate([6, 115, 80])
+            translate([6, 117, 80])
                 cylinder(h = 30, r = 1.25, center = true);
             translate([184, 15, 80])
                 cylinder(h = 30, r = 1.25, center = true);
-            translate([184, 65, 80])
+            translate([184, 66, 80])
                 cylinder(h = 30, r = 1.25, center = true);
-            translate([184, 115, 80])
+            translate([184, 117, 80])
                 cylinder(h = 30, r = 1.25, center = true);
 
-            translate([0, 8.5, 8])
+            // Power supply
+            translate([0, 9.5, 8])
                 rotate([0, 90, 0])
                     cylinder(h = 10, r = 2, center = true);
-            translate([0, 121.5, 8])
+            translate([0, 122.5, 8])
                 rotate([0, 90, 0])
                     cylinder(h = 10, r = 2, center = true);
-            translate([0, 8.5, 33.8])
+            translate([0, 9.5, 33.8])
                 rotate([0, 90, 0])
                     cylinder(h = 10, r = 2, center = true);
-            translate([0, 8.5, 59.5])
+            translate([0, 9.5, 59.5])
                 rotate([0, 90, 0])
                     cylinder(h = 10, r = 2, center = true);
-            translate([0, 121.5, 59.5])
+            translate([0, 122.5, 59.5])
                 rotate([0, 90, 0])
                     cylinder(h = 10, r = 2, center = true);
                     
                     
-            translate([-2, 12.5, 4])
+            translate([-2, 13.5, 4])
                 difference() {
                     cube([6, 113, 59.5]);
                     union() {
@@ -206,8 +211,9 @@ module gpu_assembly() {
     }
 }
 
-translate([0, 5, 85])
-    gpu_assembly();
+translate([0, 7, 85]) {
+    // gpu_assembly();
+}
 
 bottom();
 
