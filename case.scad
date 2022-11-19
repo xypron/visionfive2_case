@@ -147,6 +147,68 @@ module bottom() {
     }
 }
 
+module gpu_holder() {
+    color(c = [0, .3, .5, 1])
+        cube ([83.8, 17.3, 3.8]);
+    color(c = [.3, .3, .3, 1]) {
+        translate([20.4, 4, 3.8]) {
+            cube ([39, 7.3, 11.5]);
+        }
+    }
+    color(c = [.7, .7, .7, 1]) {
+        translate([67.2, 2, 3.8]) {
+            cube ([16.6, 13.3, 7.5]);
+        }
+    }
+}
+
+module gpu() {
+    color(c = [.7, .7, .7, 1]) {
+        difference() {
+            cube([0.86, 18.42, 120.02]);
+            union() {
+                translate([-1, 14.30, -1]) {
+                    cube([10, 10, 8.27]);
+                }
+                translate([-1, -6.12, -1]) {
+                    cube([10, 10, 8.27]);
+                }
+            }
+        }
+        difference() {
+            translate([-11.43, 2.54, 120.02]) {
+                cube([12.29, 19.05, 0.86]);
+            }
+            union() {
+                translate([-5.08, 18.42, 120.02]) {
+                    cylinder(h = 20, r = 2.21, center = true);
+                }
+                translate([-5.08, 20.63, 120.02]) {
+                    cube([4.42, 4.42, 20], center = true);
+                }
+            }
+        }
+    }
+    color(c = [.0, .3, .5, 1]) {
+        translate([1, 13.14, 20.9]) {
+            cube([145.7, 1.57, 55.3]);
+        }
+    }
+}
+
+module gpu_assembly() {
+    translate([11.43, 0, 18.42]) {
+        rotate([-90, 0, 0]) {
+            translate([20.25, 6.275, 5])
+                gpu_holder();
+            gpu();
+        }
+    }
+}
+
+translate([0, 5, 85])
+    gpu_assembly();
+
 bottom();
 
 
