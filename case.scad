@@ -217,8 +217,8 @@ module card_holder() {
         difference() {
             cube([190, 132, 2]);
             union() {
-                translate([20, 20, -5])
-                    cube([150, 92, 10]);
+                translate([20, 12, -5])
+                    cube([158, 108, 10]);
                 // Screw holes
                 translate([6, 15, 0])
                     cylinder(h = 30, r = 1.75, center = true);
@@ -253,22 +253,58 @@ module card_holder() {
                 }
             }
         }
-        translate([2.5, 121, 0])
+
+        // vertical walls
+            translate([14, 125, 0])
+                cube([165.5, 2, 8.5]);
+
+        difference() {
+            translate([20.0, 10.275, 0]) {
+                cube([159.5, 2, 40]);
+            }
+            // Slit for card holder
+            translate([52.63, 10, 29.5])
+                cube([41, 40, 3  ]);
+        }
+        // Support for GPU holder
+        translate([36.68, 10.275, 0])
+            cube([83.8, 5, 3.345]);
+        translate([36.68, 10.275, 21.645])
+            cube([83.8, 4, 2]);
+
+        translate([177.5, 2.5, 0])
+            cube([2, 125, 40]);
+
+        // GPU support
+        difference() {
+            union() {
+                translate([157.5, 31.275, 0])
+                    cube([20, 10, 2]);
+                translate([157.5, 31.275, 0])
+                    cube([20, 2, 20]);
+            }
+            translate([156.5, 26.275, 12.18])
+                cube([10, 10, 2.6]);
+        }
+
+        translate([2.5, 121, 0]) {
             cube([2.5, 5.5, 70]);
-        translate([2.5, 121, 0])
+        }
+        translate([2.5, 121, 0]) {
             cube([1, 8.5, 70]);
+        }
         difference() {
             union() {
                 translate([2.5, 2.5, 0])
                     cube([12, 8, 70]);
-                translate([13.43, 2.5, 0])
-                    cube([8, 10.5, 70]);
+                translate([14.18, 2.5, 0])
+                    cube([7.5, 10.5, 70]);
             }
             union() {
                 translate([4.5, 4.5, -1])
                     cube([14, 4, 72]);
-                translate([15.43, 4.5, -1])
-                    cube([4, 6.5, 72]);
+                translate([16.18, 4.5, -1])
+                    cube([3.5, 6.5, 72]);
                 // Slit for GPU
                 translate([16.18, 10, 12.62])
                     cube([1.5, 6.5, 11.22]);
@@ -279,25 +315,25 @@ module card_holder() {
             }
         }
         difference() {
-            translate([179.5, 2.5, 0])
-                cube([8, 8, 70]);
-            translate([181.5, 4.5, -1])
-                cube([4, 4, 72]);
+            translate([177.5, 2.5, 0])
+                cube([10, 8, 70]);
+            translate([179.5, 4.5, -1])
+                cube([6, 4, 72]);
         }
         difference() {
-            translate([179.5, 121.5, 0])
-                cube([8, 8, 70]);
-            translate([181.5, 123.5, .1])
-                cube([4, 4, 72]);
+            translate([177.5, 121.5, 0])
+                cube([10, 8, 70]);
+            translate([179.5, 123.5, .1])
+                cube([6, 4, 72]);
         }
         // bars
         translate([14.18, 8.5, 0])
             cube([2, 10, 40]);
         translate([14.18, 8.5, 0])
             cube([2, 118.5, 11]);
-        translate([13.68, 8.5, 25.42])
+        translate([14.18, 8.5, 25.42])
             cube([2, 118.5, 17]);
-        translate([13.68, 8.5, 65])
+        translate([14.18, 8.5, 65])
             cube([2, 118.5, 5]);
     }
 }
@@ -438,7 +474,7 @@ module platina_holder() {
     }
 }
 
-
+/*
 translate([18.93, 17, 120]) {
     platina();
     platina_holder();
@@ -453,5 +489,8 @@ translate([5, 7, 85]) {
 }
 
 bottom();
+*/
 
-platina_holder();
+// platina_holder();
+
+card_holder();
