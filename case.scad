@@ -175,7 +175,7 @@ module gpu() {
                 translate([-1, 14.30, -1]) {
                     cube([10, 10, 8.27]);
                 }
-                translate([-1, -6.12, -1]) {
+                translate([-1, -5.88, -1]) {
                     cube([10, 10, 8.27]);
                 }
             }
@@ -233,16 +233,69 @@ module card_holder() {
                     cylinder(h = 30, r = 1.75, center = true);
             }
         }
-        translate([2.5, 122, 0])
-            cube([12.5, 5, 70]);
-        translate([2.5, 2.5, 0])
-            cube([18, 8, 70]);
-        translate([12.5, 2.5, 0])
-            cube([8,12, 70]);
-        translate([179.5, 2.5, 0])
-            cube([8, 8, 70]);
-        translate([179.5, 121.5, 0])
-            cube([8, 8, 70]);
+        difference() {
+            translate([2.5, 124, 0])
+                cube([13.18, 3, 70]);
+            union() {
+                translate([11.43, 125, 9]) {
+                    rotate([90, 0, 0])
+                        cylinder(h = 20, r = 1.65, center = true);
+                }
+                translate([11.43, 125, 29.32]) {
+                    rotate([90, 0, 0])
+                        cylinder(h = 20, r = 1.65, center = true);
+                }
+                translate([11.43, 125, 49.64]) {
+                    rotate([90, 0, 0])
+                        cylinder(h = 20, r = 1.65, center = true);
+                }
+            }
+        }
+        translate([2.5, 121, 0])
+            cube([2.5, 5.5, 70]);
+        translate([2.5, 121, 0])
+            cube([1, 8.5, 70]);
+        difference() {
+            union() {
+                translate([2.5, 2.5, 0])
+                    cube([12, 8, 70]);
+                translate([13.43, 2.5, 0])
+                    cube([8, 10.5, 70]);
+            }
+            union() {
+                translate([4.5, 4.5, -1])
+                    cube([14, 4, 72]);
+                translate([15.43, 4.5, -1])
+                    cube([4, 6.5, 72]);
+                translate([16.18, 10, 12.62])
+                    cube([1.5, 6.5, 11.22]);
+                translate([16.18, 10, 32.94])
+                    cube([2.5, 6.5, 11.22]);
+                translate([16.18, 10, 53.26])
+                    cube([2.5, 6.5, 11.22]);
+            }
+        }
+        difference() {
+            translate([179.5, 2.5, 0])
+                cube([8, 8, 70]);
+            translate([181.5, 4.5, -1])
+                cube([4, 4, 72]);
+        }
+        difference() {
+            translate([179.5, 121.5, 0])
+                cube([8, 8, 70]);
+            translate([181.5, 123.5, .1])
+                cube([4, 4, 72]);
+        }
+        // bars
+        translate([14.18, 8.5, 0])
+            cube([2, 118.5, 11]);
+        translate([13.68, 8.5, 25.42])
+            cube([2, 118.5, 5.9]);
+        translate([13.68, 8.5, 45.72])
+            cube([2, 118.5, 5.9]);
+        translate([13.68, 8.5, 66.06])
+            cube([2, 118.5, 3.84]);
     }
 }
 
