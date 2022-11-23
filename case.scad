@@ -211,8 +211,47 @@ module gpu_assembly() {
     }
 }
 
-translate([0, 7, 85]) {
-    // gpu_assembly();
+module card_holder() {
+    color(c = [1, 0.5, 0]) {
+        difference() {
+            cube([190, 132, 2]);
+            union() {
+                translate([20, 20, -5])
+                    cube([150, 92, 10]);
+                // Screw holes
+                translate([6, 15, 0])
+                    cylinder(h = 30, r = 1.75, center = true);
+                translate([6, 66, 0])
+                    cylinder(h = 30, r = 1.75, center = true);
+                translate([6, 117, 0])
+                    cylinder(h = 30, r = 1.75, center = true);
+                translate([184, 15, 0])
+                    cylinder(h = 30, r = 1.75, center = true);
+                translate([184, 66, 0])
+                    cylinder(h = 30, r = 1.75, center = true);
+                translate([184, 117, 0])
+                    cylinder(h = 30, r = 1.75, center = true);
+            }
+        }
+        translate([2.5, 122, 0])
+            cube([12.5, 5, 70]);
+        translate([2.5, 2.5, 0])
+            cube([18, 8, 70]);
+        translate([12.5, 2.5, 0])
+            cube([8,12, 70]);
+        translate([179.5, 2.5, 0])
+            cube([8, 8, 70]);
+        translate([179.5, 121.5, 0])
+            cube([8, 8, 70]);
+    }
+}
+
+translate([0, 0, 76]) {
+    card_holder();
+}
+
+translate([5, 7, 85]) {
+    gpu_assembly();
 }
 
 bottom();
