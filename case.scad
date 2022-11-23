@@ -213,6 +213,7 @@ module gpu_assembly() {
 
 module card_holder() {
     color(c = [1, 0.5, 0]) {
+        // ground plate
         difference() {
             cube([190, 132, 2]);
             union() {
@@ -241,11 +242,11 @@ module card_holder() {
                     rotate([90, 0, 0])
                         cylinder(h = 20, r = 1.65, center = true);
                 }
-                translate([11.43, 125, 29.32]) {
+                translate([11.43, 125, 36]) {
                     rotate([90, 0, 0])
                         cylinder(h = 20, r = 1.65, center = true);
                 }
-                translate([11.43, 125, 49.64]) {
+                translate([11.43, 125, 60]) {
                     rotate([90, 0, 0])
                         cylinder(h = 20, r = 1.65, center = true);
                 }
@@ -291,13 +292,146 @@ module card_holder() {
         translate([14.18, 8.5, 0])
             cube([2, 118.5, 11]);
         translate([13.68, 8.5, 25.42])
-            cube([2, 118.5, 5.9]);
-        translate([13.68, 8.5, 45.72])
-            cube([2, 118.5, 5.9]);
-        translate([13.68, 8.5, 66.06])
-            cube([2, 118.5, 3.84]);
+            cube([2, 118.5, 17]);
+        translate([13.68, 8.5, 65])
+            cube([2, 118.5, 5]);
     }
 }
+
+module platina() {
+    color(c = [.3, .3, .3, 1]) {
+        difference() {
+            cube ([74.2, 100.2, 1.6]);
+            translate([21.7, 3.6, 0])
+                cylinder(h = 10, r = 1.75, center = true);
+            translate([21.7, 96.6, 0])
+                cylinder(h = 10, r = 1.75, center = true);
+            translate([70.7, 3.6, 0])
+                cylinder(h = 10, r = 1.75, center = true);
+            translate([70.7, 96.6, 0])
+                cylinder(h = 10, r = 1.75, center = true);
+        }
+    }
+    color(c = [.7, .7, .7, 1]) {
+        // Ethernet
+        translate([-3.3, 1.9, 1.6])
+            cube([21.3, 16, 13.5]);
+        translate([-3.3, 21.5, 1.6])
+            cube([21.3, 16, 13.5]);
+        // HDMI
+        translate([-3.3, 42, 3])
+            cube([23, 5.5, 15]);
+        // USB
+        translate([-3.3, 53.9, 2.3])
+            cube([17.8, 14.6, 15.6]);
+        translate([-3.3, 73.4, 2.3])
+            cube([17.8, 14.6, 15.6]);
+        // Audio
+        translate([-1, 91.5, 1.6])
+            cube([15, 7, 6]);
+        translate([0, 95.1, 4.6]) {
+            rotate([0, 90, 0])
+                cylinder(h = 6, r = 3, center = true);
+        }
+    }
+}
+
+module platina_holder() {
+    color(c = [.3, .3, .3, 1]) {
+        difference() {
+            union() {
+                translate([-2.5, 0, -14])
+                    cube ([76.7, 100.2, 2]);
+
+                translate([-2.5, 0, -14])
+                    cube ([76.7, 2, 11.5]);
+
+                translate([-2.5, 98.2, -14])
+                    cube ([76.7, 2, 11.5]);
+
+                translate([72.7, 0, -14])
+                    cube ([2, 100.2, 11.5]);
+
+                translate([-2.5, -10, -14])
+                    cube ([2, 122.2, 36]);
+
+                translate([-13.93, 110.2, -14])
+                    cube ([13.43, 2, 36]);
+
+                translate([34.2, -10, -14])
+                    cube ([40, 100.2, 2]);
+
+                translate([21.7, 3.6, -7])
+                    cylinder(h = 14, r = 3.5, center = true);
+                translate([21.7, 96.6, -7])
+                    cylinder(h = 14, r = 3.5, center = true);
+                translate([70.7, 3.6, -7])
+                    cylinder(h = 14, r = 3.5, center = true);
+                translate([70.7, 96.6, -7])
+                    cylinder(h = 14, r = 3.5, center = true);
+            }
+
+            union() {
+                // PCIe cable
+                translate([34.2, 100.2, -4]) {
+                    rotate([90, 0, 0])
+                        cylinder(h = 10, r = 3, center = true);
+                }
+                translate([34.2, 100.2, -1])
+                    cube([6, 6, 6], center = true);
+
+                // Screw holes
+                translate([-7.5, 108, -8]) {
+                    rotate([90, 0, 0])
+                        cylinder(h = 20, r = 2.25, center = true);
+                }
+                translate([-7.5, 108, 16]) {
+                    rotate([90, 0, 0])
+                        cylinder(h = 20, r = 2.25, center = true);
+                }
+
+                translate([21.7, 3.6, -7])
+                    cylinder(h = 16, r = 1.25, center = true);
+                translate([21.7, 96.6, -7])
+                    cylinder(h = 16, r = 1.25, center = true);
+                translate([70.7, 3.6, -7])
+                    cylinder(h = 16, r = 1.25, center = true);
+                translate([70.7, 96.6, -7])
+                    cylinder(h = 16, r = 1.25, center = true);
+
+                // Ethernet
+                translate([-3.3, .9, .6])
+                    cube([21.3, 18, 15.5]);
+                translate([-3.3, 20.5, .6])
+                    cube([21.3, 18, 15.5]);
+                // HDMI
+                translate([-3.3, 41, 2])
+                    cube([23, 7.5, 17]);
+                // USB
+                translate([-3.3, 52.9, 1.3])
+                    cube([17.8, 16.6, 17.6]);
+                translate([-3.3, 72.4, 1.3])
+                    cube([17.8, 16.6, 17.6]);
+                // Audio
+                translate([-2, 90.5, 0.6])
+                    cube([15, 9, 8]);
+                translate([0, 95.1, 4.6]) {
+                    rotate([0, 90, 0])
+                        cylinder(h = 10, r = 4, center = true);
+                }
+            }
+        }
+    }
+}
+
+
+/*
+translate([18.93, 17, 120]) {
+    platina();
+    platina_holder();
+}
+
+
 
 translate([0, 0, 76]) {
     card_holder();
@@ -308,5 +442,6 @@ translate([5, 7, 85]) {
 }
 
 bottom();
+*/
 
-
+platina_holder();
