@@ -288,10 +288,7 @@ module card_holder() {
         }
 
         translate([2.5, 121, 0]) {
-            cube([2.5, 5.5, 70]);
-        }
-        translate([2.5, 121, 0]) {
-            cube([1.5, 8.5, 70]);
+            cube([2, 8.5, 70]);
         }
         difference() {
             union() {
