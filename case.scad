@@ -235,19 +235,19 @@ module card_holder() {
             }
         }
         difference() {
-            translate([2.5, 124, 0])
-                cube([13.18, 3, 70]);
+            translate([2.5, 122.5, 0])
+                cube([13.68, 3, 70]);
 
             union() {
-                translate([11.43, 125, 9]) {
+                translate([11.43, 123.5, 9]) {
                     rotate([90, 0, 0])
                         cylinder(h = 20, r = 1.65, center = true);
                 }
-                translate([11.43, 125, 36]) {
+                translate([11.43, 123.5, 36]) {
                     rotate([90, 0, 0])
                         cylinder(h = 20, r = 1.65, center = true);
                 }
-                translate([11.43, 125, 60]) {
+                translate([11.43, 123.5, 60]) {
                     rotate([90, 0, 0])
                         cylinder(h = 20, r = 1.65, center = true);
                 }
@@ -255,21 +255,21 @@ module card_holder() {
         }
 
         // vertical walls
-            translate([14, 125, 0])
+            translate([22, 125, 0])
                 cube([165.5, 2, 8.5]);
 
         difference() {
-            translate([20.0, 10.275, 0]) {
+            translate([20.0, 8.775, 0]) {
                 cube([159.5, 2, 40]);
             }
             // Slit for card holder
-            translate([52.63, 10, 29.5])
-                cube([41, 40, 3  ]);
+            translate([50.63, 8.5, 29.5])
+                cube([45, 40, 3]);
         }
         // Support for GPU holder
-        translate([36.68, 10.275, 0])
+        translate([36.68, 8.775, 0])
             cube([83.8, 5, 3.345]);
-        translate([36.68, 10.275, 21.645])
+        translate([36.68, 8.775, 21.645])
             cube([83.8, 4, 2]);
 
         translate([177.5, 2.5, 0])
@@ -278,12 +278,12 @@ module card_holder() {
         // GPU support
         difference() {
             union() {
-                translate([157.5, 31.275, 0])
+                translate([157.5, 35.775, 0])
                     cube([20, 10, 2]);
-                translate([157.5, 31.275, 0])
+                translate([157.5, 35.775, 0])
                     cube([20, 2, 20]);
             }
-            translate([156.5, 26.275, 12.18])
+            translate([156.5, 30.775, 12.18])
                 cube([10, 10, 2.6]);
         }
 
@@ -291,25 +291,25 @@ module card_holder() {
             cube([2.5, 5.5, 70]);
         }
         translate([2.5, 121, 0]) {
-            cube([1, 8.5, 70]);
+            cube([1.5, 8.5, 70]);
         }
         difference() {
             union() {
                 translate([2.5, 2.5, 0])
                     cube([12, 8, 70]);
                 translate([14.18, 2.5, 0])
-                    cube([7.5, 10.5, 70]);
+                    cube([7.5, 9, 70]);
             }
             union() {
                 translate([4.5, 4.5, -1])
                     cube([14, 4, 72]);
                 translate([16.18, 4.5, -1])
-                    cube([3.5, 6.5, 72]);
+                    cube([3.5, 5, 72]);
                 // Slit for GPU
-                translate([16.18, 10, 12.62])
+                translate([16.18, 8.5, 12.62])
                     cube([1.5, 6.5, 11.22]);
                 // Slit for platina holder
-                translate([16.18, 10, 29.5])
+                translate([16.18, 8.5, 29.5])
                     cube ([2.5, 6., 37]);
 
             }
@@ -328,13 +328,13 @@ module card_holder() {
         }
         // bars
         translate([14.18, 8.5, 0])
-            cube([2, 10, 40]);
+            cube([2, 8.5, 40]);
         translate([14.18, 8.5, 0])
-            cube([2, 118.5, 11]);
+            cube([2, 117, 11]);
         translate([14.18, 8.5, 25.42])
-            cube([2, 118.5, 17]);
+            cube([2, 117, 17]);
         translate([14.18, 8.5, 65])
-            cube([2, 118.5, 5]);
+            cube([2, 117, 5]);
     }
 }
 
@@ -504,14 +504,15 @@ module cover() {
     }
 }
 
-//*
+/*
 difference() {
     translate([0, 0, 78])
         cover();
     translate([-2, 120, 100])
         cube([200, 200, 200]);
 }
-translate([18.93, 17, 120]) {
+*/
+translate([18.93, 15.5, 120]) {
     platina();
     platina_holder();
 }
@@ -520,13 +521,13 @@ translate([0, 0, 76]) {
     card_holder();
 }
 
-translate([5, 7, 85]) {
+translate([5, 6.5, 85]) {
     gpu_assembly();
 }
 bottom();
-//*/
+
 // platina_holder();
 // card_holder();
 rotate([180, 0, 0]) {
-    // cover();
+//    cover();
 }
