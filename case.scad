@@ -395,6 +395,9 @@ module platina_holder() {
                 translate([-2.5, -10, -14])
                     cube ([2, 122.2, 36]);
 
+                translate([-13.93, 110.2, -14])
+                    cube ([21.43, 2, 36]);
+
                 translate([-2.5, 0, -14])
                     cube ([10, 112.2, 2]);
 
@@ -419,7 +422,7 @@ module platina_holder() {
                 translate([7.5, 10, -15])
                     cube ([56.7, 80.2, 4]);
 
-                translate([26.2, 8.1, -0])
+                translate([26.2, 8.1, 0])
                     cube([6, 6, 14], center = true);
 
                 // PCIe cable
@@ -474,7 +477,40 @@ module platina_holder() {
     }
 }
 
-/*
+module cover() {
+    color(c = [0.3, 0.3, 0.3]) {
+        // ground plate
+        difference() {
+            union() {
+                difference() {
+                    cube([190, 132, 71]);
+                    translate([2, 2, -2])
+                        cube([186, 128, 71]);
+                    translate([-4, 12, 6])
+                        cube([10, 110, 60]);
+                }
+                translate([120, 66, 69]) {
+                    rotate([0, 0, 180])
+                        cof_add(2.1);
+                }
+            }
+            union() {
+                translate([120, 66, 69]) {
+                    rotate([0, 0, 180])
+                        cof_sub(2.1);
+                }
+            }
+        }
+    }
+}
+
+//*
+difference() {
+    translate([0, 0, 78])
+        cover();
+    translate([-2, 120, 100])
+        cube([200, 200, 200]);
+}
 translate([18.93, 17, 120]) {
     platina();
     platina_holder();
@@ -487,10 +523,10 @@ translate([0, 0, 76]) {
 translate([5, 7, 85]) {
     gpu_assembly();
 }
-
 bottom();
-*/
-
+//*/
 // platina_holder();
-
-card_holder();
+// card_holder();
+rotate([180, 0, 0]) {
+    // cover();
+}
