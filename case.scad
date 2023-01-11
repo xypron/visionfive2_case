@@ -405,8 +405,8 @@ module push_rod() {
         translate([57.2, 10, -9]) {
                 cube([40, 3, 3], center = true);
         }
-        translate([-.5 + .5 * 65, 10, -9]) {
-                cube([65, 5, 5], center = true);
+        translate([-.5 + .5 * 63, 10, -9]) {
+                cube([63, 5, 5], center = true);
         }
     }
 }
