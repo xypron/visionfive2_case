@@ -7,6 +7,12 @@ The repository contains the OpenSCAD file for the case in the image below.
   :width: 400
   :alt: StarFive VisionFive 2 case
 
+The reset button is activated via a push rod and a lever.
+
+.. image:: board_assembly.png
+  :width: 400
+  :alt: Board assembly
+
 License
 -------
 
