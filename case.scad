@@ -72,82 +72,84 @@ module cof_sub(f) {
 }
 
 module bottom() {
-    difference() {
-        union() {
-            difference() {
-                cube([190, 132, 76]);
-                translate([2, 2, 2])
-                    cube([186, 128, 76]);
-            }
-            translate([150, 2, 38])
-                rotate([90, -90, 0])
-                    cof_add(1.3);
-            translate([150, 130, 38])
-                rotate([-90, -90, 0])
-                    cof_add(1.3);
-            translate([188, 66, 38])
-                rotate([90, -90, 90])
-                    cof_add(1.3);
-            multmatrix([[0, -1, 0, 190], [132, 0, 0, 0], [0, 0, 1, 76], [0, 0, 0, 1]])
-                beam();
-            multmatrix([[0, 1, 0, 0], [-132, 0, 0, 132], [0, 0, 1, 76], [0, 0, 0, 1]])
-                beam();
-        }
-        union() {
-
-            // Circle of friends
-            translate([150, 2, 38])
-                rotate([90, -90, 0])
-                    cof_sub(1.3);
-            translate([150, 130, 38])
-                rotate([-90, -90, 0])
-                    cof_sub(1.3);
-            translate([188, 66, 38])
-                rotate([90, -90, 90])
-                    cof_sub(1.3);
-
-            // Screw holes
-            translate([6, 15, 80])
-                cylinder(h = 30, r = 1.25, center = true);
-            translate([6, 66, 80])
-                cylinder(h = 30, r = 1.25, center = true);
-            translate([6, 117, 80])
-                cylinder(h = 30, r = 1.25, center = true);
-            translate([184, 15, 80])
-                cylinder(h = 30, r = 1.25, center = true);
-            translate([184, 66, 80])
-                cylinder(h = 30, r = 1.25, center = true);
-            translate([184, 117, 80])
-                cylinder(h = 30, r = 1.25, center = true);
-
-            // Power supply
-            translate([0, 9.5, 8])
-                rotate([0, 90, 0])
-                    cylinder(h = 10, r = 2, center = true);
-            translate([0, 122.5, 8])
-                rotate([0, 90, 0])
-                    cylinder(h = 10, r = 2, center = true);
-            translate([0, 9.5, 33.8])
-                rotate([0, 90, 0])
-                    cylinder(h = 10, r = 2, center = true);
-            translate([0, 9.5, 59.5])
-                rotate([0, 90, 0])
-                    cylinder(h = 10, r = 2, center = true);
-            translate([0, 122.5, 59.5])
-                rotate([0, 90, 0])
-                    cylinder(h = 10, r = 2, center = true);
-                    
-                    
-            translate([-2, 13.5, 4])
+    color(c = [.3, .3, .3, 1]) {
+        difference() {
+            union() {
                 difference() {
-                    cube([6, 113, 59.5]);
-                    union() {
-                        multmatrix([[1, 0, 0, 0], [0, 1, 1, 125 - 10], [0, -1, 1, -10], [0, 0, 0, 1]])
-                            cube([20, 26, 26], center = true);
-                        multmatrix([[1, 0, 0, 0], [0, 1, 1, 125 - 10], [0, -1, 1, 63.5 + 6], [0, 0, 0, 1]])
-                            cube([20, 26, 26], center = true);
-                    }
+                    cube([190, 132, 76]);
+                    translate([2, 2, 2])
+                        cube([186, 128, 76]);
                 }
+                translate([150, 2, 38])
+                    rotate([90, -90, 0])
+                        cof_add(1.3);
+                translate([150, 130, 38])
+                    rotate([-90, -90, 0])
+                        cof_add(1.3);
+                translate([188, 66, 38])
+                    rotate([90, -90, 90])
+                        cof_add(1.3);
+                multmatrix([[0, -1, 0, 190], [132, 0, 0, 0], [0, 0, 1, 76], [0, 0, 0, 1]])
+                    beam();
+                multmatrix([[0, 1, 0, 0], [-132, 0, 0, 132], [0, 0, 1, 76], [0, 0, 0, 1]])
+                    beam();
+            }
+            union() {
+
+                // Circle of friends
+                translate([150, 2, 38])
+                    rotate([90, -90, 0])
+                        cof_sub(1.3);
+                translate([150, 130, 38])
+                    rotate([-90, -90, 0])
+                        cof_sub(1.3);
+                translate([188, 66, 38])
+                    rotate([90, -90, 90])
+                        cof_sub(1.3);
+
+                // Screw holes
+                translate([6, 15, 80])
+                    cylinder(h = 30, r = 1.25, center = true);
+                translate([6, 66, 80])
+                    cylinder(h = 30, r = 1.25, center = true);
+                translate([6, 117, 80])
+                    cylinder(h = 30, r = 1.25, center = true);
+                translate([184, 15, 80])
+                    cylinder(h = 30, r = 1.25, center = true);
+                translate([184, 66, 80])
+                    cylinder(h = 30, r = 1.25, center = true);
+                translate([184, 117, 80])
+                    cylinder(h = 30, r = 1.25, center = true);
+
+                // Power supply
+                translate([0, 9.5, 8])
+                    rotate([0, 90, 0])
+                        cylinder(h = 10, r = 2, center = true);
+                translate([0, 122.5, 8])
+                    rotate([0, 90, 0])
+                        cylinder(h = 10, r = 2, center = true);
+                translate([0, 9.5, 33.8])
+                    rotate([0, 90, 0])
+                        cylinder(h = 10, r = 2, center = true);
+                translate([0, 9.5, 59.5])
+                    rotate([0, 90, 0])
+                        cylinder(h = 10, r = 2, center = true);
+                translate([0, 122.5, 59.5])
+                    rotate([0, 90, 0])
+                        cylinder(h = 10, r = 2, center = true);
+                        
+                        
+                translate([-2, 13.5, 4])
+                    difference() {
+                        cube([6, 113, 59.5]);
+                        union() {
+                            multmatrix([[1, 0, 0, 0], [0, 1, 1, 125 - 10], [0, -1, 1, -10], [0, 0, 0, 1]])
+                                cube([20, 26, 26], center = true);
+                            multmatrix([[1, 0, 0, 0], [0, 1, 1, 125 - 10], [0, -1, 1, 63.5 + 6], [0, 0, 0, 1]])
+                                cube([20, 26, 26], center = true);
+                        }
+                    }
+            }
         }
     }
 }
@@ -328,8 +330,15 @@ module card_holder() {
             cube([2, 8.5, 40]);
         translate([14.18, 8.5, 0])
             cube([2, 117, 11]);
-        translate([14.18, 8.5, 25.42])
-            cube([2, 117, 17]);
+        difference() {
+            translate([14.18, 8.5, 25.42])
+                cube([2, 117, 17]);
+                // Push rod
+                translate([0, 25.5, 35]) {
+                    rotate([0, 90, 0])
+                        cylinder(h = 79.7, r = 2, center = true);
+                }    
+        }
         translate([14.18, 8.5, 65])
             cube([2, 117, 5]);
     }
@@ -380,6 +389,62 @@ module board() {
             rotate([0, 90, 0])
                 cylinder(h = 2, r = 1, center = true);
         }
+        // Power
+        translate([71.7, 13, 1.6])
+            cube([8, 10, 3.4]);
+    }
+}
+
+
+module push_rod() {
+    color(c = [0.3, 0.3, 0.3]) {
+        translate([-8 + .5 * 79.7, 10, -9]) {
+            rotate([0, 90, 0])
+                cylinder(h = 79.7, r = 1.5, center = true);
+        }    
+        translate([57.2, 10, -9]) {
+                cube([40, 3, 3], center = true);
+        }
+        translate([-.5 + .5 * 65, 10, -9]) {
+                cube([65, 5, 5], center = true);
+        }
+    }
+}
+
+module lever() {
+    color(c = [1, 0.5, 0]) {
+        difference() {
+            union() {
+                translate([78.2, 21.275, -5.5])
+                    cylinder(h = 2, r = 3, center = true);
+                translate([80.2, 20.55, -5.5])
+                    cube ([4, 24, 2], center = true);
+
+                translate([78.2, 21.275, -10.5])
+                    cylinder(h = 2, r = 3, center = true);
+                translate([80.95, 21.275, -10.5])
+                    cube ([5.5, 6, 2], center = true);
+                
+                translate([78.2, 21.275, -15.5])
+                    cylinder(h = 2, r = 3, center = true);
+                translate([80.95, 20.55, -15.5])
+                    cube ([5.5, 24, 2], center = true);
+
+                translate([82.7, 20.55, -8.25])
+                    cube ([2, 24, 13.5], center = true);
+                
+                translate([80.95, 9.55, -8.25])
+                    cube ([5.5, 2, 13.5], center = true);
+
+                translate([80.95, 31.05, -5.6])
+                    cube ([5.5, 3, 21.8], center = true);
+
+                translate([79.45, 31.05, 3.8])
+                    cube ([8.5, 3, 3], center = true);
+            }
+            translate([78.2, 21.275, -5.75])
+                cylinder(h = 30, r = 1, center = true);
+        }
     }
 }
 
@@ -390,6 +455,16 @@ module board_holder() {
                 translate([-2.5, 0, -14])
                     cube ([76.7, 100.2, 2]);
 
+                translate([76.2, 21.275, -3])
+                    cube ([4, 6, 2], center = true);
+                translate([78.2, 21.275, -3])
+                    cylinder(h = 2, r = 3, center = true);
+
+                translate([76.2, 21.275, -13])
+                    cube ([4, 6, 2], center = true);
+                translate([78.2, 21.275, -13])
+                    cylinder(h = 2, r = 3, center = true);
+
                 translate([-2.5, 0, -14])
                     cube ([76.7, 2, 11.5]);
 
@@ -398,6 +473,10 @@ module board_holder() {
 
                 translate([72.2, 0, -14])
                     cube ([2, 100.2, 11.5]);
+
+                translate([72.2, 0, -14])
+                    cube ([2, 35, 14]);
+
 
                 translate([-2.5, -10, -14])
                     cube ([2, 122.2, 36]);
@@ -479,6 +558,18 @@ module board_holder() {
                     rotate([0, 90, 0])
                         cylinder(h = 10, r = 4, center = true);
                 }
+                // Push rod
+                translate([-4.5 + .5 * 79.7, 10, -9]) {
+                    rotate([0, 90, 0])
+                        cylinder(h = 79.7, r = 1.75, center = true);
+                }    
+                translate([5.5 + .5 * 69.7, 10, -9]) {
+                        cube([69.7, 3.5, 3.5], center = true);
+                }
+                // lever
+                translate([78.2, 21.275, -7])
+                    cylinder(h = 30, r = 1, center = true);
+
             }
         }
     }
@@ -511,17 +602,18 @@ module cover() {
     }
 }
 
-/*
 difference() {
     translate([0, 0, 78])
         cover();
-    translate([-2, 120, 100])
+    translate([-2, 50, 100])
         cube([200, 200, 200]);
 }
-*/
+
 translate([18.93, 15.5, 120]) {
     board();
     board_holder();
+    push_rod();
+    lever();
 }
 
 translate([0, 0, 76]) {
@@ -538,3 +630,7 @@ bottom();
 rotate([180, 0, 0]) {
 //    cover();
 }
+rotate([0, 90, 0]) {
+    //lever();
+}
+//push_rod();
