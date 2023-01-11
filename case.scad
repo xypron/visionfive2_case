@@ -305,7 +305,7 @@ module card_holder() {
                 // Slit for GPU
                 translate([16.18, 8.5, 12.62])
                     cube([1.5, 6.5, 11.22]);
-                // Slit for platina holder
+                // Slit for board holder
                 translate([16.18, 8.5, 29.5])
                     cube ([2.5, 6., 37]);
 
@@ -335,7 +335,7 @@ module card_holder() {
     }
 }
 
-module platina() {
+module board() {
     color(c = [.3, .3, .3, 1]) {
         difference() {
             cube ([74.2, 100.2, 1.6]);
@@ -370,10 +370,20 @@ module platina() {
             rotate([0, 90, 0])
                 cylinder(h = 6, r = 3, center = true);
         }
+        // NVMe
+        translate([24.5, 5, -5.4])
+            cube([21.9, 7, 5.4]);
+        // Reset switch
+        translate([70.2, 29.3, 1.6])
+            cube([3, 4.5, 3.4]);
+        translate([74.2, 31.55, 3.3]) {
+            rotate([0, 90, 0])
+                cylinder(h = 2, r = 1, center = true);
+        }
     }
 }
 
-module platina_holder() {
+module board_holder() {
     color(c = [.3, .3, .3, 1]) {
         difference() {
             union() {
@@ -423,12 +433,12 @@ module platina_holder() {
                     cube([6, 6, 14], center = true);
 
                 // PCIe cable
-                translate([34.2, 100.2, -4]) {
+                translate([34.2, 100.2, -6]) {
                     rotate([90, 0, 0])
                         cylinder(h = 10, r = 3, center = true);
                 }
-                translate([34.2, 100.2, -1])
-                    cube([6, 6, 6], center = true);
+                translate([34.2, 100.2, -2])
+                    cube([6, 6, 8], center = true);
 
                 // Screw holes
                 translate([-7.5, 108, -8]) {
@@ -510,8 +520,8 @@ difference() {
 }
 */
 translate([18.93, 15.5, 120]) {
-    platina();
-    platina_holder();
+    board();
+    board_holder();
 }
 
 translate([0, 0, 76]) {
@@ -523,7 +533,7 @@ translate([5, 6.5, 85]) {
 }
 bottom();
 
-// platina_holder();
+// board_holder();
 // card_holder();
 rotate([180, 0, 0]) {
 //    cover();
