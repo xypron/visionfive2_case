@@ -474,8 +474,8 @@ module board_holder() {
                 translate([72.2, 0, -14])
                     cube ([2, 100.2, 11.5]);
 
-                translate([72.2, 0, -14])
-                    cube ([2, 35, 14]);
+                translate([72.2, 3.5, -14])
+                    cube ([2, 35.1, 14]);
 
 
                 translate([-2.5, -10, -14])
@@ -498,6 +498,8 @@ module board_holder() {
                 translate([21.7, 96.6, -7])
                     cylinder(h = 14, r = 3.5, center = true);
                 translate([70.7, 3.6, -7])
+                    cylinder(h = 14, r = 3.5, center = true);
+                translate([70.7, 38.6, -7])
                     cylinder(h = 14, r = 3.5, center = true);
                 translate([70.7, 96.6, -7])
                     cylinder(h = 14, r = 3.5, center = true);
@@ -534,6 +536,8 @@ module board_holder() {
                 translate([21.7, 96.6, -7])
                     cylinder(h = 16, r = 1.25, center = true);
                 translate([70.7, 3.6, -7])
+                    cylinder(h = 16, r = 1.25, center = true);
+                translate([70.7, 38.6, -7])
                     cylinder(h = 16, r = 1.25, center = true);
                 translate([70.7, 96.6, -7])
                     cylinder(h = 16, r = 1.25, center = true);
